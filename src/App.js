@@ -27,7 +27,7 @@ startGame = (index) => {
   
 }
 
-    calculateWinner = (squares) => {
+    calculateWinner = (squares,) => {
         this.props.startGame(this.props.index)
         const lines = [
         [0, 1, 2],
@@ -43,6 +43,10 @@ startGame = (index) => {
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
             return squares[a];
+        }if (this.calculateWinner){
+          this.calculateWinner = 'Winner: ' + this.calculateWinner;
+        }else {
+          this.calculateWinner = 'Next player: ' + (this.state.playerOne)
         }
         }
         return null;
@@ -55,20 +59,24 @@ startGame = (index) => {
 
 
   render(){
-  
+    
     return(
       <div className='mainContainer'>
         <div className='container'>
           <h1>Tic Tac Toe</h1>
+      
             <div className='ticTac'>
               {this.state.squares.map((value,index) =>
-              {return (
-              <Square 
-                key={index} 
-                value={value}
-                index={index}
-                startGame = {this.startGame}
-              />)})}
+                {return (
+                  <Square 
+                    key={index} 
+                    value={value}
+                    index={index}
+                    startGame = {this.startGame}
+              />
+              )
+                }
+                  )}
             <Board startGame = {this.startGame}/>
             </div>
         </div>

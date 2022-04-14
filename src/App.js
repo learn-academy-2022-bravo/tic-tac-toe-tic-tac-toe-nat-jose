@@ -12,9 +12,9 @@ class App extends Component{
     }
   }
   startGame = (index) => {
-    const {squares, playerOne} = this.state;
-      if(squares[index]) {
-        return
+    const {squares, playerOne, win} = this.state;
+      if(squares[index]|| win) {
+        return;
       } squares[index] = playerOne ? 'X' : 'O'
       this.setState({squares: squares, playerOne: !playerOne});
       this.calculateWinner()
@@ -34,12 +34,18 @@ calculateWinner = () => {
         winning.forEach(value => {
           const [a, b, c] = value;
           if (this.state.squares[a] === 'X' && this.state.squares[b] === 'X' && this.state.squares[c] === 'X') {
-            return this.setState({win: 'X'})
+            return this.setState({win: 'Player One Wins!!'})
           } else if (this.state.squares[a] === 'O' && this.state.squares[b] === 'O' && this.state.squares[c] === 'O') {
-            return this.setState({win: 'O'})
+            return this.setState({win: 'Player Two Wins!!'})
+        // } else if  if (this.state.win.length !== 8){
+        //   alert ("No More Plays")
         }
       })
     }
+
+restart = () => {
+
+}
 
   render(){
     console.log(this.state.win)
@@ -48,7 +54,6 @@ calculateWinner = () => {
       <div className='mainContainer'>
         <div className='container'>
           <h1>Tic Tac Toe</h1>
-          
             <div className='ticTac'>
               {this.state.squares.map((value,index) =>
                 {return (
@@ -62,6 +67,7 @@ calculateWinner = () => {
                 }
               )}
             </div>
+            <div className='player'>{this.state.win}</div>
         </div>
       </div>
     )

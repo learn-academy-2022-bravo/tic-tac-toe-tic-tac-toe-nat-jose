@@ -5,12 +5,18 @@ This game will be for two users, playing on one device, taking turns. You will h
 This project will challenge your knowledge of React but should also be an exercise in creating good user experiences. Your view should be styled to look good as well as function flawlessly.
 
 ### User Stories:
-- As a user, I should start off seeing a 3x3 grid on the main page.
-- As a user, I should be able to click on a square to mark it.
+- As a user, I should start off seeing a 3x3 grid on the main page.DONE
+- As a user, I should be able to click on a square to mark it.DONE
 - As a user, my partner should be able to click on a square after me and see their mark.
+    not a conditional. your turn my turn. every other on click switches from x and o.
+    may use the switch method to change the next value and go back to default.DONE
+
+
+
 - As a user, I shouldn't be able to click on a square that has already been selected.
-- As a user, when someone has won the game (3 squares in a row: horizontally, vertically, or diagonally) I should see a notice telling me who won.
-- As a user, I should not be able to continue playing the game after the game has been won.
+    find a way do disable selected square.DONE
+- As a user, when someone has won the game (3 squares in a row: horizontally, vertically, or diagonally) I should see a notice telling me who won. Console.log DONE
+- As a user, I should not be able to continue playing the game after the game has been won.DONE
 - As a user, if there are no more squares available, I should see a notice telling me that the game has ended.
 - As a user, I should see a restart button that when clicked will clear the gameboard.
 
